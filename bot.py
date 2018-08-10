@@ -18,9 +18,18 @@ def NOTIFIED_INVITE_INTO_GROUP(op):
         print("\n\nNOTIFIED_INVITE_INTO_GROUP\n\n")
         return
       
+def NOTIFIED_INVITE_INTO_ROOM(op):
+    try:
+        client.leaveRoom(op.param1)
+    except Exception as e:
+        print(e)
+        print("\n\nNOTIFIED_INVITE_INTO_ROOM\n\n")
+        return
+        
       
 oepoll.addOpInterruptWithDict({
-    OpType.NOTIFIED_INVITE_INTO_GROUP: NOTIFIED_INVITE_INTO_GROUP
+    OpType.NOTIFIED_INVITE_INTO_GROUP: NOTIFIED_INVITE_INTO_GROUP,
+    OpType.NOTIFIED_INVITE_INTO_ROOM: NOTIFIED_INVITE_INTO_ROOM
 })
 
 
